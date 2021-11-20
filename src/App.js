@@ -16,9 +16,9 @@ function App() {
           <File key="4" name="shark.jpg" />
         </Folder>
         <Folder name="Music" >
-          <File key="5" name="david guetta-memories" />
-          <File key="6" name="avicii - fade into darkness" />
-          <File key="7" name="journey - don't stop believing" />
+          <File key="5" name="david guetta-memories.mp4" />
+          <File key="6" name="avicii - fade into darkness.mp4" />
+          <File key="7" name="journey - don't stop believing.mp4" />
         </Folder>
       </Folder>
     </div>
@@ -46,8 +46,15 @@ const Folder = (props) => {
 };
 
 const File = (props) => {
+
+  const fileExtension = props.name.split('.')[1];
+  const fileIcons = {
+    jpg: 'file image icon',
+    mp4: 'headphones icon'
+  }
+
   return <div style={{ padding: "8px" }}>
-    <i className="file image icon"></i>
+    <i className={`${fileIcons[fileExtension]}`}></i>
     {props.name}
   </div>
 };
