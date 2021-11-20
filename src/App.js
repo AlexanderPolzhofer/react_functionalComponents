@@ -3,7 +3,10 @@ import 'semantic-ui-css/semantic.min.css';
 
 function App() {
   return (
-    <div>
+    <div style={{ fontSize: "X-Large" }}>
+      <div style={{ textAlign: "center", border: "2px solid", padding: "5px", margin: "5px", backgroundColor: "lightgray" }}>
+        <h1 >APP</h1>
+      </div>
 
       <Folder name="Desktop" system="windows" user="alex"  >
         <Folder name="Images">
@@ -24,21 +27,29 @@ function App() {
 
 const Folder = (props) => {
   const [isOpen, setIsOpen] = useState(true);
+  const direction = isOpen ? 'down' : "right";
 
   const handleClick = () => {
     setIsOpen(!isOpen);
   }
 
-  return <div>
-    <span onClick={handleClick}><h2 style={{ margin: "13px" }}> {props.name}</h2></span>
+  return <div style={{ padding: "8px" }}>
+    <span onClick={handleClick}>
+      <i className="grey folder icon"></i>
+      <i className={`caret ${direction} icon`}></i>
+      {props.name}
+    </span>
     <div style={{ marginLeft: "21px" }}>
       {isOpen ? props.children : null}
     </div>
-  </div>;
+  </div >;
 };
 
 const File = (props) => {
-  return <h5>{props.name}</h5>
+  return <div style={{ padding: "8px" }}>
+    <i className="file image icon"></i>
+    {props.name}
+  </div>
 };
 
 export default App;
