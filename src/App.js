@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import Folder from "./components/Folder";
+import File from "./components/File";
 import 'semantic-ui-css/semantic.min.css';
 
 function App() {
@@ -24,39 +25,4 @@ function App() {
     </div>
   )
 }
-
-const Folder = (props) => {
-  const [isOpen, setIsOpen] = useState(true);
-  const direction = isOpen ? 'down' : "right";
-
-  const handleClick = () => {
-    setIsOpen(!isOpen);
-  }
-
-  return <div style={{ padding: "8px" }}>
-    <span onClick={handleClick}>
-      <i className="grey folder icon"></i>
-      <i className={`caret ${direction} icon`}></i>
-      {props.name}
-    </span>
-    <div style={{ marginLeft: "21px" }}>
-      {isOpen ? props.children : null}
-    </div>
-  </div >;
-};
-
-const File = (props) => {
-
-  const fileExtension = props.name.split('.')[1];
-  const fileIcons = {
-    jpg: 'file image icon',
-    mp4: 'headphones icon'
-  }
-
-  return <div style={{ padding: "8px" }}>
-    <i className={`${fileIcons[fileExtension]}`}></i>
-    {props.name}
-  </div>
-};
-
 export default App;
