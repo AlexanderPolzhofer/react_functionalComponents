@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import 'semantic-ui-css/semantic.min.css';
 
 function App() {
   return (
@@ -29,7 +30,7 @@ const Folder = (props) => {
   }
 
   return <div>
-    <span onClick={handleClick}><h2> {props.name}</h2></span>
+    <span onClick={handleClick}><h2 style={{ margin: "13px" }}> {props.name}</h2></span>
     <div style={{ marginLeft: "21px" }}>
       {isOpen ? props.children : null}
     </div>
