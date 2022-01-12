@@ -3,6 +3,8 @@ import File from "./components/File";
 import 'semantic-ui-css/semantic.min.css';
 
 function App() {
+  //nesting elements: Folder has two children (images, music) and the children got children (files)
+
   return (
     <div style={{ fontSize: "X-Large" }}>
       <div style={{ textAlign: "center", border: "2px solid", padding: "5px", margin: "5px", backgroundColor: "lightgray" }}>
